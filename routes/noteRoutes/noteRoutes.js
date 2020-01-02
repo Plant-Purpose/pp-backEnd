@@ -32,7 +32,7 @@ router.get('/:plant_id/:note_id', (req, res) => {
 router.post('/:plant_id', (req, res) => {
     const plantNote = req.body;
 
-    Notes.add(plantNote, id)
+    Notes.add(plantNote)
         .then(plant => {
             res.status(201).json(plant);
         })
