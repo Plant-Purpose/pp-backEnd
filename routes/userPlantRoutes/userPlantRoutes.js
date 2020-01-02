@@ -16,7 +16,7 @@ router.get('/:id/plants', (req, res) => {
 
 router.get('/:id/plants/:plant_id', (req, res) => {
     const { id, plant_id } = req.params;
-
+    console.log('ids', id, plant_id)
     UserPlants.findById(id, plant_id)
         .then(plant => {
             console.log('plant, ', plant)

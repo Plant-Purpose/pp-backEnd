@@ -17,3 +17,7 @@ router.post('/register', (req, res) => {
             res.status(500).json({ error: error, message: 'registration failed' });
         });
 });
+
+
+
+module.exports = router;
