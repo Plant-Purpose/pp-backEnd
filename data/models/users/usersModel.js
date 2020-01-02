@@ -30,11 +30,9 @@ function getById(id) {
 }
 
 function insert(user) {
+    console.log(user)
     return db("users")
         .insert(user)
-        .then(ids => {
-            return ids;
-        });
 }
 
 function update(id, changes) {
