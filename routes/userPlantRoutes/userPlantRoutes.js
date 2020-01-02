@@ -19,6 +19,7 @@ router.get('/:id/plants/:plant_id', (req, res) => {
 
     UserPlants.findById(id, plant_id)
         .then(plant => {
+            console.log('plant, ', plant)
             res.status(200).json(plant);
         })
         .catch(err => {
