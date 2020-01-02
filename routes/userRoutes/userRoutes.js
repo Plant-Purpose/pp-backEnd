@@ -1,5 +1,16 @@
-const express = requrie('express');
-const userDb = requrie('../../models/users/usersModel.js');
-const router = express.Router();
-router.use(express.json());
+const router = require('express').Router();
 
+const Users = require('../../models/users/usersModel.js');
+
+
+router.get('/', (req, res) => {
+    Users.get()
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+});
+
+module.exports = router;

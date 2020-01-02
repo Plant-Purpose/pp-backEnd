@@ -6,7 +6,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 // Routes
-// const routes = require('../routes');
+const routes = require('../routes');
 
 
 // Server
@@ -19,7 +19,7 @@ server.use(
     logger('dev')
 );
 
-// server.use('/api', routes);
+server.use('/api', routes);
 
 server.get('/', (req, res) => {
     res.json({ message: "Server Running..." });
