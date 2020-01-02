@@ -9,9 +9,10 @@ const Users = require('../../data/models/users/usersModel');
 // api/auth/register
 router.post('/register', (req, res) => {
     let user = req.body;
+    console.log(user)
     const hash = bcrypt.hashSync(user.password, 7);
     user.password = hash;
-
+    console.log(user)
     Users.insert(user)
         .then(({ id }) => {
             res.status(201).json({ status: 201, message: id });
