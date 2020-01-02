@@ -22,4 +22,27 @@ router.get('/:id/tasks', (req, res) => {
 
 router.get('/:id/tasks/:task_id', (req, res) => {
 
-})
+    Tasks.findById(id, task_id)
+        .then(findTask => {
+            res.status(200).json(findTask)
+        })
+        .catch(err => {
+            console.log(err)
+        });
+});
+
+router.post('/:id/tasks', (req, res) => {
+
+    Tasks.add(req.body)
+        .then(newTask => {
+            res.status(201).json(newTask)
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).json({ message: "Error adding new task." })
+        })
+});
+
+router.put('/:id/tasks/:task_id')
+
+module.exports = router;
