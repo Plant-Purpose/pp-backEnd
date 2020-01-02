@@ -11,7 +11,7 @@ exports.up = function (knex) {
         tbl.string('created_at');
 
         // Int
-        tbl.integar('user_id').notNullable();
+        tbl.integer('user_id').notNullable();
     });
 };
 

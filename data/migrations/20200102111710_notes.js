@@ -10,7 +10,7 @@ exports.up = function (knex) {
         tbl.string('created_at');
 
         // Integars
-        tbl.integar('plant_id').notNullable();
+        tbl.integer('plant_id').notNullable();
     });
 };
 
