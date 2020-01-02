@@ -57,7 +57,7 @@ router.put('/:plant_id/:note_id', (req, res) => {
 router.delete('/:plant_id/:note_id', (req, res) => {
     const { note_id } = req.params;
 
-    Notes.delete(note_id)
+    Notes.remove(note_id)
         .then(result => {
             res.status(200).json(result);
         })
