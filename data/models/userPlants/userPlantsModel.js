@@ -12,9 +12,9 @@ module.exports = {
     remove
 };
 
-function get() {
+function get(id) {
     return db("userPlants")
-        .select("id")
+        .where({ "user_id": id })
 }
 
 function findBy(filter) {
