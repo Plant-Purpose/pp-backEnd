@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const Tasks = require('../../models/tasks/tasks')
+const Tasks = require('../../data/models/tasks/tasks')
 
 router.get('/:id/tasks', (req, res) => {
     const { id } = req.params;
