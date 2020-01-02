@@ -31,22 +31,13 @@ router.get('/:plant_id/:note_id', (req, res) => {
 
 router.post('/:plant_id', (req, res) => {
     const plantNote = req.body;
-    const { id } = req.params;
 
-    Notes.findById(id)
-        .then(note => {
-            if (note) {
-                Notes.add(plantNote, id)
-                    .then(plant => {
-                        res.status(201).json(plant);
-                    })
-            } else {
-                res.status(404).json({ message: "Could not find note with given id." })
-            }
+    Notes.add(plantNote, id)
+        .then(plant => {
+            res.status(201).json(plant);
         })
         .catch(err => {
-            console.log(err)
-            res.status(500).json({ message: "Failed to create note." })
+            console.log(err);
         });
 });
 
