@@ -5,9 +5,10 @@ exports.up = function (knex) {
         tbl.increments();
 
         // FK
-        tbl.integer('plant_id');
+        tbl.int('plant_id');
+        tbl.int('user_id');
 
-        tbl.string('create_at');
+        tbl.string('created_at');
     });
 };
 
