@@ -3,8 +3,8 @@ const router = require('express').Router();
 const Users = require('../../data/models/users/usersModel');
 
 
-router.get('/', (req, res) => {
-    Users.get()
+router.get('/', async (req, res) => {
+    await Users.get()
         .then(res => {
             res.status(200).json(res);
         })
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         })
 });
 
-router.get('/:id', (req, res) => {
-    Users.getById(req.params.id)
+router.get('/:id', async (req, res) => {
+    await Users.getById(req.params.id)
         .then(res => {
             console.log(res)
             res.status(200).json(res)
