@@ -8,13 +8,14 @@ module.exports = {
     remove
 };
 
-function get() {
+function get(id) {
     return db("tasks")
+        .where({ "user_id": id });
 }
 
-function findById(id) {
+function findById(id, task_id) {
     return db("tasks")
-        .where({ id })
+        .where({ "user_id": id, "id": task_id })
         .first();
 }
 
