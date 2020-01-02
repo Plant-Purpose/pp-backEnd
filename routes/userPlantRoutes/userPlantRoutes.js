@@ -6,8 +6,8 @@ const UserPlants = require('../../data/models/userPlants/userPlantsModel');
 
 router.get('/:id/plants', (req, res) => {
     UserPlants.get(req.params.id)
-        .then(res => {
-            console.log(res)
+        .then(plants => {
+            console.log(plants)
         })
         .catch(err => {
             console.log(err)
