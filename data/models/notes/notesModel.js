@@ -30,8 +30,7 @@ function add(note) {
     return db("notes")
         .insert(note, "id")
         .then(ids => {
-            const [id] = ids;
-            return findById(id);
+            return findById(ids);
         })
 }
 
