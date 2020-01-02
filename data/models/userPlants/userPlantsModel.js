@@ -29,13 +29,9 @@ function findById(id, plant_id) {
         .first();
 }
 
-function add(note) {
+function add(plant) {
     return db("userPlants")
-        .insert(note, "id")
-        .then(ids => {
-            const [id] = ids;
-            return findById(id);
-        })
+        .insert(plant);
 }
 
 function update(id, changes) {
