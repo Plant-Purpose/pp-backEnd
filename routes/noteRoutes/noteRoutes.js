@@ -42,31 +42,13 @@ router.post('/:plant_id', (req, res) => {
 });
 
 router.put('/:plant_id/:note_id', (req, res) => {
-    const { plant_id, note_id } = req.params;
-    const changes = req.body;
-
     Notes.update(note_id, changes)
         .then(update => {
             res.status(200).json(update);
         })
         .catch(err => {
             console.log(err);
-        }); outer.del// ete('/:plant_id/:note_id', (req, res) => {
-    co// nst { plant_id, note_id } = req.params;
+        });
+});
 
-    No// tes.remove(plant_id, note_id)
-    //       .then(deleted => {
-    //           if (deleted) {
-    //               res.json({ removed: deleted });
-    //           } else {
-    //                   res.status(404).json({ message: "Could not find note with given id." })
-    //           }
-    //           })
-    //           .catch(err => {
-    //           console.log(err)
-    //           res.status(500).json({ message: "Failed to delete note." })
-    //       })
-})// 
-
-
-module.ets = rout
+module.exports = router;
