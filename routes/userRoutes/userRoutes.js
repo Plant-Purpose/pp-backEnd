@@ -24,29 +24,29 @@ router.get('/:id', async (req, res) => {
         })
 })
 
-router.post('/', (req, res) => {
-    const user = req.body;
-    const full_name = user;
-    console.log(full_name);
+// router.post('/', (req, res) => {
+//     const user = req.body;
+//     const full_name = user;
+//     console.log(full_name);
 
-    if (full_name.length === 0) {
-        res
-            .status(400)
-            .json({ errorMessage: 'Please provide NAME for the user.' })
-    } else {
-        Users.insert(user)
-            .then(user => {
-                res
-                    .status(201)
-                    .json(user)
-            })
-            .catch(error => {
-                console.log('error on POST users', error);
-                res
-                    .status(500)
-                    .json({ error: 'There was an error while saving the user to the database.' })
-            })
-    }
-})
+//     if (full_name.length === 0) {
+//         res
+//             .status(400)
+//             .json({ errorMessage: 'Please provide NAME for the user.' })
+//     } else {
+//         Users.insert(user)
+//             .then(user => {
+//                 res
+//                     .status(201)
+//                     .json(user)
+//             })
+//             .catch(error => {
+//                 console.log('error on POST users', error);
+//                 res
+//                     .status(500)
+//                     .json({ error: 'There was an error while saving the user to the database.' })
+//             })
+//     }
+// })
 
 module.exports = router;

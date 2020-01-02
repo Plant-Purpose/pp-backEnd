@@ -23,9 +23,9 @@ function findBy(filter) {
         .where(filter)
 }
 
-function findById(id) {
+function findById(id, plant_id) {
     return db("userPlants")
-        .where({ id })
+        .where({ "user_id": id, "id": plant_id })
         .first();
 }
 
