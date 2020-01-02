@@ -5,8 +5,8 @@ exports.up = function (knex) {
         tbl.increments();
 
         // FK
-        tbl.int('plant_id');
-        tbl.int('user_id');
+        tbl.integar('plant_id');
+        tbl.integar('user_id');
 
         tbl.string('created_at');
     });
