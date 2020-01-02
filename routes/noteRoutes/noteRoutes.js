@@ -29,5 +29,41 @@ router.get('/:plant_id/:note_id', (req, res) => {
         })
 });
 
+router.post('/:plant_id', (req, res) => {
+    const plantNote = req.body;
+
+    Notes.add(plantNote)
+        .then(plant => {
+            res.status(201).json(plant);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+router.put('/:plant_id/:note_id', (req, res) => {
+    const { note_id } = req.params;
+    const changes = req.body;
+
+    Notes.update(note_id, changes)
+        .then(update => {
+            res.status(200).json(update);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+router.delete('/:plant_id/:note_id', (req, res) => {
+    const { note_id } = req.params;
+
+    Notes.remove(note_id)
+        .then(result => {
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 module.exports = router;
