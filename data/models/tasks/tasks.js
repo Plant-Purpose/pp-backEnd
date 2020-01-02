@@ -22,10 +22,6 @@ function findById(id, task_id) {
 function add(task) {
     return db("tasks")
         .insert(task)
-        .then(ids => {
-            const [id] = ids;
-            return findById(id);
-        })
 }
 
 function update(id, changes) {
