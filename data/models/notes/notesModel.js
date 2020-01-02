@@ -28,7 +28,7 @@ function findById(plant_id, note_id) {
 
 function add(note) {
     return db("notes")
-        .insert(note, "id")
+        .insert(note)
         .then(ids => {
             return findById(ids);
         })
