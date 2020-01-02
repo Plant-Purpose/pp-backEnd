@@ -1,6 +1,3 @@
-# pp-backEnd
-Back End
-
 # Database
 
 ## Table Diagram
