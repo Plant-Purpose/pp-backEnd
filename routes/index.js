@@ -3,9 +3,10 @@ const router = require('express').Router();
 const authRoutes = require('../middleware/auth/auth');
 const userRoutes = require('./userRoutes/userRoutes');
 const userPlantRoutes = require('./userPlantRoutes/userPlantRoutes');
+const taskRoutes = require('./taskRoutes/taskRoutes');
 const noteRoutes = require('./noteRoutes/noteRoutes');
 
-router.use('/users', userRoutes, userPlantRoutes);
+router.use('/users', userRoutes, userPlantRoutes, taskRoutes);
 router.use('/auth', authRoutes);
 router.use('/notes', noteRoutes);
 
