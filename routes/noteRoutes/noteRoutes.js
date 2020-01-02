@@ -46,29 +46,27 @@ router.put('/:plant_id/:note_id', (req, res) => {
     const changes = req.body;
 
     Notes.update(note_id, changes)
-});
+        .then(update => {
+            res.status(200).json(update);
+        })
+        .catch(err => {
+            console.log(err);
+        }); outer.delete('/:plant_id/:note_id', (req, res) => {
+            const { plant_id, note_id } = req.params;
 
-r.then(update => {
-    res.status(200).json(update);
-})
-    .catch(err => {
-        console.log(err);
-    }); outer.delete('/:plant_id/:note_id', (req, res) => {
-        const { plant_id, note_id } = req.params;
-
-        Notes.remove(plant_id, note_id)
-            .then(deleted => {
-                if (deleted) {
-                    res.json({ removed: deleted });
-                } else {
-                    res.status(404).json({ message: "Could not find note with given id." })
-                }
-            })
-            .catch(err => {
-                console.log(err)
-                res.status(500).json({ message: "Failed to delete note." })
-            })
-    })
+            Notes.remove(plant_id, note_id)
+                .then(deleted => {
+                    if (deleted) {
+                        res.json({ removed: deleted });
+                    } else {
+                        res.status(404).json({ message: "Could not find note with given id." })
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                    res.status(500).json({ message: "Failed to delete note." })
+                })
+        })
 
 
-module.exports = router;
+    module.exports = router;
