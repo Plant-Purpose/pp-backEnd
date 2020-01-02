@@ -9,9 +9,9 @@ module.exports = {
     remove
 };
 
-function get() {
+function get(plant_id) {
     return db("notes")
-        .select("id")
+        .where({ plant_id });
 }
 
 function findBy(filter) {
@@ -20,9 +20,9 @@ function findBy(filter) {
         .where(filter)
 }
 
-function findById(id) {
+function findById(plant_id, note_id) {
     return db("notes")
-        .where({ id })
+        .where({ plant_id, "id": note_id })
         .first();
 }
 
