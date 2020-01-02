@@ -1,5 +1,27 @@
-const express = requrie('express');
-const userDb = requrie('../../models/users/usersModel.js');
-const router = express.Router();
-router.use(express.json());
+const router = require('express').Router();
 
+const Users = require('../../data/models/users/usersModel');
+
+
+router.get('/', async (req, res) => {
+    await Users.get()
+        .then(users => {
+            res.status(200).json(users);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+});
+
+router.get('/:id', async (req, res) => {
+    await Users.getById(req.params.id)
+        .then(user => {
+            console.log(res)
+            res.status(200).json(user)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
+module.exports = router;
