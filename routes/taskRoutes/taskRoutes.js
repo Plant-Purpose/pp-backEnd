@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const Tasks = require('../../models/tasks/tasks')
 
-router.get('/:id/tasks', (req, res) => {
+router.get('/:id/tasks:id/tasks', (req, res) => {
     Tasks.get()
         .then(tasks => {
             tasks.map(tasks => {
@@ -20,17 +20,6 @@ router.get('/:id/tasks', (req, res) => {
         })
 });
 
-router.get('/:id/tasks/:task_id', (req, res) => {
-
-    Tasks.findById(id, task_id)
-        .then(findTask => {
-            res.status(200).json(findTask)
-        })
-        .catch(err => {
-            console.log(err)
-        });
-});
-
 router.post('/:id/tasks', (req, res) => {
 
     Tasks.add(req.body)
@@ -43,6 +32,42 @@ router.post('/:id/tasks', (req, res) => {
         })
 });
 
-router.put('/:id/tasks/:task_id')
+router.put('/:id/tasks/:task_id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
+
+    Tasks.findById(id)
+        .then(modifyTask => {
+            if (modifyTask) {
+                Tasks.update(changes, id)
+                    .then(updatedTask => {
+                        res.json(updatedTask);
+                    });
+            } else {
+                res.status(404).json({ message: "Could not find task with given id." });
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ message: "Failed to update task." });
+        });
+});
+
+router.delete('/:id/tasks/:task_id', (req, res) => {
+    const { id } = req.params;
+
+    Tasks.remove(id)
+        .then(deleted => {
+            if (deleted) {
+                res.json({ removed: deleted });
+            } else {
+                res.status(404).json({ message: "Could not find task with given id " });
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ message: "Failed to delete task." });
+        });
+});
 
 module.exports = router;
