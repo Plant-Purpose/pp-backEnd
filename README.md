@@ -51,6 +51,8 @@
 ```
 # Endpoints
 
+## Users
+
 | Request Type | Endpoint                       | Description             |
 |:------------:|:------------------------------:|:-----------------------:|
 | POST         | /api/register                  | Creates User            |
@@ -59,16 +61,28 @@
 | GET          | /api/users/:id                 | Returns User By ID      |
 | PUT          | /api/users/:id                 | Update User             |
 | DELETE       | /api/users/:id                 | Remove User             |
+
+## User Plants
+| Request Type | Endpoint                       | Description             |
+|:------------:|:------------------------------:|:-----------------------:|
 | GET          | api/users/:id/plants           | Get All User Plants     |
 | GET          | api/users/:id/plants/:plant_id | Get Specific User Plant |
 | POST         | api/users/:id/plants           | Add User Plant          |
 | PUT          | api/users/:id/plants/:plant_id | Update User Plant       |
 | DELETE       | api/users/:id/plants/:plant_id | Remove User Plant       |
+
+## Tasks
+| Request Type | Endpoint                       | Description             |
+|:------------:|:------------------------------:|:-----------------------:|
 | GET          | api/users/:id/tasks            | Get All User Tasks      |
 | GET          | api/users/:id/tasks/:task_id   | Get Specific User Task  |
 | POST         | api/users/:id/tasks            | Add User Task           |
 | PUT          | api/users/:id/tasks/:task_id   | Update User Task        |
 | DELETE       | api/users/:id/tasks/:task_id   | Remove User Task        |
+
+## Notes
+| Request Type | Endpoint                       | Description             |
+|:------------:|:------------------------------:|:-----------------------:|
 | GET          | api/notes/:plant_id            | Get All Notes For Plant |
 | GET          | api/notes/:plant_id/:note_id   | Get Specific Plant Note |
 | POST         | api/notes/:plant_id            | Add Note For Plant      |
