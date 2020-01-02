@@ -22,7 +22,32 @@ router.get('/:id', async (req, res) => {
         .catch(err => {
             console.log(err)
         })
-})
+});
+
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
+
+    Users.update(id, changes)
+        .then(updated => {
+            res.status(200).json(updated);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+
+    Users.remove(id)
+        .then(success => {
+            res.status(200).json(success)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
 
 
 module.exports = router;
