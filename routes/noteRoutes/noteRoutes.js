@@ -42,6 +42,9 @@ router.post('/:plant_id', (req, res) => {
 });
 
 router.put('/:plant_id/:note_id', (req, res) => {
+    const { note_id } = req.params;
+    const changes = req.body;
+
     Notes.update(note_id, changes)
         .then(update => {
             res.status(200).json(update);
