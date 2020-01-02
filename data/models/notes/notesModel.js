@@ -27,11 +27,9 @@ function findById(plant_id, note_id) {
 }
 
 function add(note) {
+    console.log(note)
     return db("notes")
         .insert(note)
-        .then(ids => {
-            return findById(ids);
-        })
 }
 
 function update(id, changes) {
