@@ -14,10 +14,11 @@ router.post('/schedule', (req, res) => {
           from: process.env.PHONE,
           to: req.body.phone
         })
-        .then(() => res.status(200).json({ message: "Reminder Will Be Sent In" + ((req.body.time / 1000) / 60 + minutes) }))
+        .then(() => console.log('success'))
         .catch(err => console.log(err));
     }, req.body.time);
 
+    res.status(200).json({ message: "Reminder Will Be Sent In" + ((req.body.time / 1000) / 60 + minutes) })
 });
 
 module.exports = router;
