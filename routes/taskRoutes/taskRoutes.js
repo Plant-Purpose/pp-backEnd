@@ -37,7 +37,7 @@ router.get('/:id/tasks/:task_id', (req, res) => {
 
 router.post('/:id/tasks', (req, res) => {
     const userTask = req.body;
-
+    console.log(userTask)
     Tasks.add(userTask)
         .then(task => {
             res.status(201).json(task);
