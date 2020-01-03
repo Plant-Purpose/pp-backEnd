@@ -4,6 +4,7 @@ const axios = require('axios');
 const router = require('express').Router();
 
 const ENDPOINT = process.env.URL;
+const SECRET = process.env.SECRET;
 
 router.get('/browse', (req, res) => {
     axios.get(ENDPOINT)
@@ -15,5 +16,17 @@ router.get('/browse', (req, res) => {
             console.log(err);
         });
 });
+
+router.get('/browse/:id', (req, res) => {
+    const { id } = req.params;
+    axios.get(`${ENDPOINT}/${id}/${SECRET}`)
+        .then(plant => {
+            res.status(200).json(plant);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
 
 module.exports = router;
