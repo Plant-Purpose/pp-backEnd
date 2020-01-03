@@ -26,7 +26,7 @@ router.get('/browse', async (req, res) => {
         //     }
         // });
 
-        res.status(200).json(plants);
+        res.status(200).json(plants.data);
     } catch (err) {
         console.log(err);
     }
