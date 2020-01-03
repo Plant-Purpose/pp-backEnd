@@ -8,9 +8,9 @@ const SECRET = process.env.SECRET;
 
 router.get('/browse', async (req, res) => {
     try {
-        const plants = await axios.get(ENDPOINT + SECRET);
+        const plants = await axios.get(ENDPOINT + SECRET + '&total=10&page=1&per-page=10');
 
-        res.status(200).send(plants);
+        res.status(200).json(plants);
     } catch (err) {
         console.log(err);
     }
