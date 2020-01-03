@@ -24,7 +24,7 @@ function getByEmail(email) {
 
 function getById(id) {
     return db('users')
-        .select('id', 'email', 'password')
+        .select('id', 'email', 'password', 'phone')
         .where({ id })
         .first();
 }
