@@ -18,7 +18,7 @@ router.post('/schedule', (req, res) => {
         .catch(err => console.log(err));
     }, req.body.time);
 
-    res.status(200).json({ message: "Reminder Will Be Sent In" + ((req.body.time / 1000) / 60 + minutes) })
+    res.status(200).json({ message: "Reminder Will Be Sent In " + ((req.body.time / 1000) / 60) + ' minutes' })
 });
 
 module.exports = router;
