@@ -10,7 +10,7 @@ router.get('/browse', async (req, res) => {
     try {
         const plants = await axios.get(ENDPOINT + SECRET);
 
-        res.status(200).json(plants);
+        res.status(200).send(plants);
     } catch (err) {
         console.log(err);
     }
