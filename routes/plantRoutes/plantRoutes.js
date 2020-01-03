@@ -58,7 +58,7 @@ router.get('/browse/:id', (req, res) => {
                 name: plant.data.common_name,
                 growth_period: plant.data.main_species.specifications.growth_period
             }
-
+            console.log(filtered)
             res.status(200).json(filtered);
         })
         .catch(err => {
