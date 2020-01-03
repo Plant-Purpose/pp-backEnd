@@ -17,7 +17,7 @@ function get() {
 function getByEmail(email) {
     console.log('Model', email);
     return db('users')
-        .select('id', 'email', 'password')
+        .select('id', 'email', 'password', 'full_name')
         .where({ ...email })
         .first();
 }
