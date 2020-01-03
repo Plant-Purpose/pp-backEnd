@@ -12,7 +12,7 @@ router.post('/register', (req, res) => {
     console.log(user)
     const hash = bcrypt.hashSync(user.password, 7);
     user.password = hash;
-    console.log(user)
+
     Users.insert(user)
         .then(({ id }) => {
             res.status(201).json({ status: 201, message: id });
@@ -37,7 +37,7 @@ router.post('/login', (req, res) => {
                 res.status(200).json({
                     id: user.id,
                     token,
-                    message: `Welcome ${user.email}!`,
+                    message: `Welcome ${user.full_name}!`,
                 });
             } else {
                 res.status(401).json({ message: 'Invalid Credentials' });
